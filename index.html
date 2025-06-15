@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rafif Mineral - Air Galon Sehat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fa;
+      color: #1b365d;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 12px;
+    }
+    /* Utility */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      width: 100%;
+    }
+    .flex {
+      display: flex;
+    }
+    .btn-reset {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    /* Header */
+   header {
+  background: #5197ff;
+  color: white;
+  position: relative;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
+}
+
+
+.header-container {
+  width: 100%;         
+  max-width: none;      
+  margin: 0;            
+  padding: 12px 16px;   
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  gap: 8px;
+  user-select: none;
+}
+
+.logo img {
+  height: 80px;
+}
+
+    nav.desktop-nav {
+      display: flex;
+      gap: 32px;
+    }
+    nav.desktop-nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      padding: 8px 0;
+      transition: color 0.3s;
+      border-bottom: 3px solid transparent;
+    }
+    nav.desktop-nav a:hover,
+    nav.desktop-nav a.active {
+      color: #ffc107;
+      border-color: #ffc107;
+    }
+    /* Mobile Hamburger */
+    .mobile-menu-button {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+    .mobile-menu-button .material-icons {
+      font-size: 32px;
+    }
+    /* Mobile nav overlay */
+    nav.mobile-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #437fff;
+      display: none;
+      flex-direction: column;
+      padding: 80px 24px 24px;
+      gap: 28px;
+      z-index: 1000;
+    }
+    nav.mobile-nav.show {
+      display: flex;
+    }
+    nav.mobile-nav a {
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 8px;
+      transition: border-color 0.3s;
+    }
+    nav.mobile-nav a:hover,
+    nav.mobile-nav a.active {
+      border-color: #ffc107;
+    }
+
+    /* Banner */
+    .banner {
+      position: relative;
+      background: #5197ff;
+      color: white;
+      overflow: hidden;
+      padding: 40px 16px 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      user-select: none;
+      text-align: center;
+    }
+    /* Large text behind */
+    .banner .bg-text {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 900;
+      font-size: 10vw;
+      line-height: 1;
+      color: #ffc107;
+      user-select: none;
+      letter-spacing: -0.05em;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 0;
+    }
+    /* Bottles container */
+    .banner .bottles {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      z-index: 1;
+      flex-wrap: nowrap;
+      max-width: 960px;
+      width: 100%;
+      padding: 0 16px;
+    }
+    .banner .bottle {
+      position: relative;
+      width: 500px;
+      height: 320px;
+      border-radius: 24px;
+      overflow: visible;
+      user-select: none;
+    }
+    .bottle img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 8px rgba(0,0,0,0.2));
+      border-radius: 24px;
+    }
+
+    /* Splash effect decor */
+    .splash-left, .splash-center, .splash-right {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      top: 60%;
+      opacity: 0.35;
+      filter: drop-shadow(0 2px 2px rgba(255 255 255 / 0.6));
+      user-select: none;
+      pointer-events: none;
+      animation: splashFloat 3.5s ease-in-out infinite alternate;
+    }
+    .splash-left {
+      left: 46px;
+      animation-delay: 0s;
+    }
+    .splash-center {
+      left: calc(50% - 70px);
+      animation-delay: 1.2s;
+    }
+    .splash-right {
+      right: 46px;
+      animation-delay: 2s;
+    }
+    @keyframes splashFloat {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+      }
+      100% {
+        transform: translateY(-15px) scale(1.05);
+        opacity: 0.7;
+      }
+    }
+
+    /* WhatsApp button */
+    .whatsapp-btn {
+      position: absolute;
+      bottom: 24px;
+      left: 0;
+      background: #25D366;
+      color: white;
+      font-weight: 600;
+      font-size: clamp(12px, 1vw, 14px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 32px 32px 32px 8px;
+      box-shadow: 0 8px 15px rgb(37 211 102 / 0.25);
+      cursor: pointer;
+      user-select: none;
+      z-index: 10;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      max-width: 280px;
+      left: 16px;
+    }
+    .whatsapp-btn:hover {
+      background: #1DA851;
+    }
+    .whatsapp-btn .material-icons {
+      font-size: 18px;
+      vertical-align: middle;
+    }
+
+    /* Tagline bubble */
+    .tagline-bubble {
+  position: absolute;
+  left: 72%;     /* Ganti dari right ke left, posisikan relatif ke container */
+  top: 16%;      /* Jarak dari atas */
+  transform: translate(-50%, -50%); /* Tengah horizontal ke titik left + top */
+  background: white;
+  color: #0d47a1;
+  font-weight: 600;
+  font-size: clamp(14px, 1.2vw, 16px);
+  padding: 16px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  max-width: 200px;
+  user-select: none;
+  line-height: 1.35;
+  z-index: 10;
+}
+
+.tagline-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 30%;
+  transform: translateX(-50%) rotate(-90deg);
+  width: 0;
+  height: 0;
+  border-top: 15px solid white;
+  border-left: 15px solid transparent;
+}
+
+
+    /* Section titles */
+    section {
+      padding: 64px 16px 80px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto 48px;
+    }
+    section h2 {
+      color: #0d47a1;
+      font-weight: 700;
+      font-size: 1.9rem;
+      text-align: center;
+      margin-bottom: 48px;
+      user-select: none;
+    }
+
+    /* Produk Kami Cards */
+    .produk-kami-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap: 32px;
+      justify-items: center;
+      user-select: none;
+    }
+    .product-card {
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgb(13 71 161 / 0.15);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 360px;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 14px 32px rgb(13 71 161 / 0.3);
+    }
+    .product-image {
+      width: 100%;
+      height: 180px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .product-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #0d47a1;
+      margin-bottom: 12px;
+      user-select: text;
+    }
+    .product-desc {
+      font-size: 0.95rem;
+      color: #1b365d;
+      line-height: 1.4;
+      user-select: text;
+    }
+
+    /* Ulasan Produk */
+    .ulasan-wrapper {
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgb(13 71 161 / 0.12);
+      padding: 40px 28px;
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 28px;
+      user-select: none;
+    }
+    @media (max-width: 767px) {
+      .ulasan-wrapper {
+        grid-template-columns: 1fr;
+        padding: 32px 20px;
+      }
+    }
+    .review-card {
+      background: #f5f5f7;
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: default;
+      user-select: text;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.06);
+      transition: background-color 0.2s;
+    }
+    .review-card:hover {
+      background-color: #eef3fc;
+    }
+    .review-avatar {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgb(13 71 161 / 0.25);
+    }
+    .review-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .review-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0d47a1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      user-select: text;
+    }
+    .rating {
+      color: #ffc107;
+      font-size: 1rem;
+      display: flex;
+      gap: 2px;
+      user-select: none;
+    }
+    .review-text {
+      font-size: 0.89rem;
+      color: #2b3a5c;
+      line-height: 1.3;
+      user-select: text;
+    }
+
+    /* Responsive section max width override for wide screens */
+    @media (min-width: 1440px) {
+      section {
+        max-width: 1140px;
+      }
+      .ulasan-wrapper {
+        max-width: 1140px;
+      }
+    }
+    /* Responsive Grid 3 column for Produk Kami on big screens */
+    @media (min-width: 1024px) {
+      .produk-kami-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Responsive header */
+    @media (max-width: 767px) {
+      nav.desktop-nav {
+        display: none;
+      }
+      .mobile-menu-button {
+        display: block;
+      }
+    }
+   
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #25D366;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5d;
+}
+
+.wa-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 4px;
+}
+.product-image img {
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover img {
+  transform: scale(1.05);
+}
+
+  </style>
+
+  
+
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo" aria-label="Raff Mineral Logo">
+  <img src="assets/logo.png" alt="Logo Rafif Mineral" style="height: 70px;" />
+  RAFIF MINERAL
+</a>
+
+      <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
+        <a href="#" class="active" tabindex="0">Home</a>
+        <a href="#">About</a>
+        <a href="#">Layanan</a>
+      </nav>
+
+      <button class="mobile-menu-button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle menu">
+        <span class="material-icons" aria-hidden="true">menu</span>
+      </button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+      <a href="#" tabindex="0">Home</a>
+      <a href="#" tabindex="0">About</a>
+      <a href="#" tabindex="0">Layanan</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="banner" role="banner" aria-label="Product showcase banner">
+ <h1 class="bg-text" aria-hidden="true">Rafif<br>Mineral</h1>
+
+      
+        </div>
+        <div class="bottle" aria-label="Left side water gallon bottle">
+          <img src="assets/galon.png" alt="Galon air mineral ukuran besar di bagian kiri" />
+          <div class="splash-left" aria-hidden="true">   
+        </div>
+       
+        </div>
+      </div>
+   
+<a href="https://wa.me/82137047337" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">
+  <img src="assets/iconWa.jpeg" alt="WhatsApp Logo" class="wa-icon">
+  +62 821-3704-7337
+</a>
+
+      <aside class="tagline-bubble" aria-label="Tagline Air Galon Sehat dan Higienis">
+        Air Galon Sehat dan Higienis Siap antar Sampai Rumah Anda
+      </aside>
+    </section>
+
+    <section aria-labelledby="produk-kami-title">
+      <h2 id="produk-kami-title">Produk Kami</h2>
+      <div class="produk-kami-grid" role="list" aria-label="Daftar produk">
+        <article class="product-card" role="listitem">
+          <figure class="product-image">
+            <img src="assets/produk1.jpg" alt="Proses produksi air galon berkualitas tinggi" loading="lazy" />
+          </figure>
+          <h3 class="product-title">Kualitas Air yang Terjamin</h3>
+          <p class="product-desc">
+            Rafif  Mineral menggunakan sumber air yang terjaga kebersihannya, diproses dengan teknologi filtrasi canggih, dan dilakukan pengujian rutin untuk memastikan kualitas air tetap sesuai standar kesehatan yang berlaku.
+          </p>
+        </article>
+        <article class="product-card" role="listitem">
+          <figure class="product-image">
+            <img src="assets/produk2.jpg" alt="Air segar yang dituangkan ke gelas" loading="lazy" />
+          </figure>
+          <h3 class="product-title">Sumber Air Alam yang Berkualitas</h3>
+          <p class="product-desc">
+            Kami hanya menggunakan sumber air alam yang memiliki kualitas tinggi, yang diproses dengan sistem yang ramah lingkungan, menjaga keseimbangan alam dan memastikan ketersediaan air yang bersih dan segar.
+          </p>
+        </article>
+        <article class="product-card" role="listitem">
+          <figure class="product-image">
+            <img src="assets/produk3.jpg" alt="Sertifikasi kualitas air galon" loading="lazy" />
+          </figure>
+          <h3 class="product-title">Sertifikasi Kualitas</h3>
+          <p class="product-desc">
+            Raff Mineral telah memiliki sertifikasi kualitas dan keamanan pangan yang diakui oleh badan terkait, memberi jaminan kualitas setiap galon air yang didistribusikan serta memenuhi standar keamanan dan kesehatan terbaik.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="ulasan-produk-title">
+      <h2 id="ulasan-produk-title">Ulasan Produk</h2>
+      <div class="ulasan-wrapper" role="list" aria-label="Daftar ulasan produk dari pelanggan">
+        <!-- Review 1 -->
+        <article class="review-card" role="listitem" tabindex="0">
+          <img src="assets/konsumen1.jpg" alt="Foto John Pinaringan" class="review-avatar" />
+          <div class="review-content">
+            <div class="review-name">
+              John Pinaringan
+              <span class="rating" aria-label="Rating bintang 5">
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+              </span>
+            </div>
+            <p class="review-text">Kebersihan terjaga dan harga terjangkau, pelayanan super duper ramah bintang 5</p>
+          </div>
+        </article>
+        <!-- Review 2 -->
+        <article class="review-card" role="listitem" tabindex="0">
+          <img src="assets/konsumen2.jpg" alt="Foto Rahmat Suryo" class="review-avatar" />
+          <div class="review-content">
+            <div class="review-name">
+              Rahmat Suryo
+              <span class="rating" aria-label="Rating bintang 5">
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+              </span>
+            </div>
+            <p class="review-text">Tempatnya bersih, pelayanannya ramah, produk berkualitas. Pengalaman belanja yang memuaskan, pasti akan kembali lagi!</p>
+          </div>
+        </article>
+        <!-- Review 3 -->
+        <article class="review-card" role="listitem" tabindex="0">
+          <img src="assets/Konsumen3.jpg" alt="Foto Joko Sudiryo" class="review-avatar" />
+          <div class="review-content">
+            <div class="review-name">
+              Joko Sudiryo
+              <span class="rating" aria-label="Rating bintang 5">
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+              </span>
+            </div>
+            <p class="review-text">Pelayanan ramah galon semua bersih pengirimanya juga cepat pokoknya ga nyesel ngisi disini, sudah terima beres tinggal diantar</p>
+          </div>
+        </article>
+        <!-- Review 4 -->
+        <article class="review-card" role="listitem" tabindex="0">
+          <img src="https://placehold.co/44x44/png?text=CN" alt="Foto Clarisya Nabila" class="review-avatar" />
+          <div class="review-content">
+            <div class="review-name">
+              Clarisya Nabila
+              <span class="rating" aria-label="Rating bintang 5">
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+              </span>
+            </div>
+            <p class="review-text">Untuk kebersihan dan dan pelayanan okeish.. bisa antar sampai rumah juga tinggal tinggal terima kesan ramah, mes mansuy juga ramah ramah</p>
+          </div>
+        </article>
+        <!-- Review 5 -->
+        <article class="review-card" role="listitem" tabindex="0">
+          <img src="assets/Konsumen4.jpg" alt="Foto Devia Agtna" class="review-avatar" />
+          <div class="review-content">
+            <div class="review-name">
+              Devia Agtna
+              <span class="rating" aria-label="Rating bintang 5">
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+              </span>
+            </div>
+            <p class="review-text">Alat alatnya lengkap sertifikasinya juga banyak jadi udh ga ragu lagi beli disini</p>
+          </div>
+        </article>
+        <!-- Review 6 -->
+        <article class="review-card" role="listitem" tabindex="0">
+          <img src="https://placehold.co/44x44/png?text=SA" alt="Foto Sherli Akhid" class="review-avatar" />
+          <div class="review-content">
+            <div class="review-name">
+              Sherli Akhid
+              <span class="rating" aria-label="Rating bintang 5">
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+                <span class="material-icons" aria-hidden="true">star</span>
+              </span>
+            </div>
+            <p class="review-text">Tempat luas parkir juga gratis gada tukang parkir tempat nunggu juga enak, next mampir sini lagi</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    mobileMenuButton.addEventListener('click', () => {
+      const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+      mobileMenuButton.setAttribute('aria-expanded', !expanded);
+      mobileNav.classList.toggle('show');
+    });
+
+    // Close mobile nav when clicking a link
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('show');
+        mobileMenuButton.setAttribute('aria-expanded', false);
+      });
+    });
+  </script>
+</body>
+</html>
+
